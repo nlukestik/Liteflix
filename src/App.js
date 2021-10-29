@@ -1,11 +1,12 @@
 import customTheme from './themeConfig'
 import { ThemeProvider } from '@material-ui/styles'
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <ThemeProvider theme={customTheme}>
-      <div className="App">
-        
+      <div>
+        <Navbar />
       </div>
     </ThemeProvider>
   );
