@@ -29,7 +29,8 @@ const customTheme = createTheme({
 			'sans-serif',
 		].join(','),
 		h1: {
-			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif"
+			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
+			letterSpacing: 16,
 		},
 		h2: {
 			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif"
@@ -44,13 +45,15 @@ const customTheme = createTheme({
 			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif"
 		},
 		h6: {
-			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif"
+			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
+			fontSize: 20,
 		},
     body1: {
-      fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif"
+      fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
+			fontSize: 18,
     },
     body2: {
-      fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif"
+			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
     }
   }
 })

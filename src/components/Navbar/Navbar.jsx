@@ -1,6 +1,6 @@
 import { makeStyles, AppBar, Toolbar, Container } from "@material-ui/core"
-import logo from "../assets/images/logo.svg"
-import avatar from "../assets/images/avatar.png"
+import logo from "../../assets/images/logo.svg"
+import avatar from "../../assets/images/avatar.png"
 
 const useStyle = makeStyles((theme) => ({
 	navBar: {
@@ -40,6 +40,7 @@ const useStyle = makeStyles((theme) => ({
 	addMovieDesk : {
 		display: "flex", 
 		alignItems: "center",
+		fontSize: 18,
 		"& svg > *" : {
 			stroke: "white",
 		},
@@ -98,7 +99,7 @@ const useStyle = makeStyles((theme) => ({
 export default function Navbar() {
 	const classes = useStyle()
 	return(
-		<AppBar className={classes.navBar}>
+		<AppBar position="sticky" className={classes.navBar}>
 			<Container style={{maxWidth: 1232, padding:0}}>
 				<Toolbar>
 					<div className={classes.addMovieMobile}>
@@ -117,7 +118,7 @@ export default function Navbar() {
 									<path d="M16.5 8H.5M8.5 0v16"/>
 								</g>
 							</svg>
-							<span>Agregar película</span>
+							<span style={{paddingTop:2}}>Agregar película</span>
 						</div>
 
 					</div>
