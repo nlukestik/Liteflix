@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Grid, ClickAwayListener } from "@material-ui/core";
+import { Grid, ClickAwayListener, Typography } from "@material-ui/core";
 
 import "./ListMovies.scss"
 import PopularMovies from "../PopularMovies/PopularMovies";
@@ -42,11 +42,12 @@ export default function ListMovies() {
 					<div 
 						onClick={handleToggle}
 						className="listMovies__dropdown__selection" 
-						style={(view !== "populars") && !isMobile ? {fontSize:14} : {}}
 					>
-						Ver: {" "+ view}
+						<Typography style={(view !== "populares") && !isMobile ? {fontSize:14} : {}}>
+							Ver: <b>{" "+ view}</b>
+							{arrowDownIcon}
+						</Typography>
 
-						{arrowDownIcon}
 
 					</div>
 						
@@ -61,8 +62,14 @@ export default function ListMovies() {
 										handleToggle();
 									}}
 								>
-									Populares
-									{view === "populares" ? activeIcon : <></> }
+									{view === "populares" ? (
+										<>
+											<b>Populares</b>
+											{activeIcon}
+										</>
+									) : 
+										"Populares"
+									}
 								</div>
 
 								<div
@@ -72,8 +79,14 @@ export default function ListMovies() {
 										handleToggle();
 									}}
 								>
-									Mis películas
-									{view === "mis peliculas" ? activeIcon : <></> }
+									{view === "mis peliculas" ? (
+										<>
+											<b>Mis películas</b>
+											{activeIcon}
+										</>
+									) : 
+										"Mis películas"
+									}
 								</div>
 
 								<div className="listMovies__dropdown__menu-arrowUp" />

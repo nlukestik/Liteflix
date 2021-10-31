@@ -35,6 +35,7 @@ const useStyle = makeStyles((theme) => ({
 		fontSize: "18px",
 		boxShadow: "none",
 		borderRadius: 0,
+		fontWeight: 300,
 		"& svg" : {
 			marginRight: 5,
 			stroke: "white",
@@ -70,7 +71,7 @@ export default function FeaturedMovie() {
 			<Grid item xs={12} md={10} className={classes.root}>
 
 				<Typography variant="h6" style={{paddingLeft:4}}>
-					Original de Liteflix
+					Original de <b>Liteflix</b>
 				</Typography>
 
 				<Typography variant="h1" color="primary">

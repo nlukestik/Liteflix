@@ -33,6 +33,7 @@ const customTheme = createTheme({
 		].join(','),
 		h1: {
 			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
+			fontWeight:700,
 			letterSpacing: 16,
 		},
 		h2: {
@@ -49,13 +50,16 @@ const customTheme = createTheme({
 		},
 		h6: {
 			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
+			fontWeight: 300,
 			fontSize: 20,
 		},
     body1: {
-      fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
+			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
+			fontWeight: 300,
 			fontSize: 18,
     },
     body2: {
+			fontWeight: 300,
 			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
     }
   }
