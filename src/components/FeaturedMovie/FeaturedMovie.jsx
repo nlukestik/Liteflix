@@ -84,7 +84,7 @@ export default function FeaturedMovie() {
 						className={classes.button}
 						startIcon={
 							<svg width="11" height="16" viewBox="0 0 11 16" fill="none">
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M9.94234 8.2363L0.625 1.875V14.125L9.94234 8.2363Z"/>
+								<path fillRule="evenodd" clipRule="evenodd" d="M9.94234 8.2363L0.625 1.875V14.125L9.94234 8.2363Z"/>
 							</svg>
 						}
 					>
@@ -96,7 +96,7 @@ export default function FeaturedMovie() {
 						className={classes.button+" "+classes.myListButton}
 						startIcon={
 							<svg width="17" height="17" viewBox="0 0 17 16">
-								<g fill="none" fill-rule="evenodd" stroke-linecap="square">
+								<g fill="none" fillRule="evenodd" strokeLinecap="square">
 										<path d="M16.5 8H.5M8.5 0v16"/>
 								</g>
 							</svg>

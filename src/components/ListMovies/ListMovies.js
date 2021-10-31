@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { Grid, ClickAwayListener } from "@material-ui/core";
-import MovieCard from "../MovieCard/MovieCard";
 
 import "./ListMovies.scss"
+import PopularMovies from "../PopularMovies/PopularMovies";
+import MyMovies from "../MyMovies/MyMovies";
 
 export default function ListMovies() {
   const [view, setView] = useState('populares');
@@ -23,13 +24,13 @@ export default function ListMovies() {
 			style={isDropdownVisible ? 
 				{transform: "rotateX(180deg)", transition:".3s"} : {}}
 		>
-			<path fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" d="M1 0l5.546 5.546L12.09 0"/>
+			<path fill="none" fillRule="evenodd" stroke="#FFF" strokeLinecap="round" d="M1 0l5.546 5.546L12.09 0"/>
 		</svg>
 	</>
 
 	const activeIcon = <>
 		<svg width="14" height="11" viewBox="0 0 14 11" fill="none">
-			<path d="M1 5L5 9L13 1" stroke="white" stroke-width="2"/>
+			<path d="M1 5L5 9L13 1" stroke="white" strokeWidth="2"/>
 		</svg>
 	</>
 
@@ -81,11 +82,13 @@ export default function ListMovies() {
 						)
 					}
 				</div>
+
+				{view === "populares" ? 
+					<PopularMovies />
+					:
+					<MyMovies />
+				}
       
-				<MovieCard title="House of Cards" type="popular" />
-				<MovieCard title="The Crown" type="myMovie" />
-				<MovieCard title="The Crown" type="popular" />
-				<MovieCard title="Stranger Things" type="popular" />
 			</Grid>
 		</>
 	)
