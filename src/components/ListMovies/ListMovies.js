@@ -1,38 +1,91 @@
 import React, { useState } from "react"
-import { Grid, Select, InputLabel, MenuItem } from "@material-ui/core";
+import { Grid, ClickAwayListener } from "@material-ui/core";
 import MovieCard from "../MovieCard/MovieCard";
 
 import "./ListMovies.scss"
 
-
 export default function ListMovies() {
-  const [view, setView] = useState('POPULARES');
+  const [view, setView] = useState('populares');
 
-  const handleChangeView = (event) => {
-    setView(event.target.value);
+	const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+
+	const handleToggle = () => {
+    setIsDropdownVisible(!isDropdownVisible)
   };
+
+	const isMobile = window.innerWidth < 960
+
+	const arrowDownIcon = <>
+		<svg 
+			width="15" 
+			height="8" 
+			viewBox="0 0 13 6"
+			style={isDropdownVisible ? 
+				{transform: "rotateX(180deg)", transition:".3s"} : {}}
+		>
+			<path fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" d="M1 0l5.546 5.546L12.09 0"/>
+		</svg>
+	</>
+
+	const activeIcon = <>
+		<svg width="14" height="11" viewBox="0 0 14 11" fill="none">
+			<path d="M1 5L5 9L13 1" stroke="white" stroke-width="2"/>
+		</svg>
+	</>
+
 
 	return(
 		<>
 			<Grid item xs={12} md={2} className="listMovies">
 				<div className="listMovies__dropdown">
-					<InputLabel id="selectViewLabel">Ver:{" "}
-						<Select
-							labelId="selectViewLabel"
-							id="selectView"
-							value={view}
-							onChange={handleChangeView}
-						>
-							<MenuItem value={"POPULARES"}>Populares</MenuItem>
-							<MenuItem value={"MIS PELICULAS"}>Mis Películas</MenuItem>
-						</Select>
-					</InputLabel>
-				</div>
+					<div 
+						onClick={handleToggle}
+						className="listMovies__dropdown__selection" 
+						style={(view !== "populars") && !isMobile ? {fontSize:14} : {}}
+					>
+						Ver: {" "+ view}
 
-				<MovieCard />
-				<MovieCard />
-				<MovieCard />
-				<MovieCard />
+						{arrowDownIcon}
+
+					</div>
+						
+					{
+						isDropdownVisible ? (
+							<ClickAwayListener onClickAway={e => {setIsDropdownVisible(!isDropdownVisible)}}>
+							<div className="listMovies__dropdown__menu">
+								<div 
+									className="listMovies__dropdown__menu__item" 
+									onClick={e => { 
+										setView("populares");
+										handleToggle();
+									}}
+								>
+									Populares
+									{view === "populares" ? activeIcon : <></> }
+								</div>
+
+								<div
+									className="listMovies__dropdown__menu__item" 
+									onClick={e => { 
+										setView("mis peliculas");
+										handleToggle();
+									}}
+								>
+									Mis películas
+									{view === "mis peliculas" ? activeIcon : <></> }
+								</div>
+							</div>
+							</ClickAwayListener>
+						) : (
+							<></>
+						)
+					}
+				</div>
+      
+				<MovieCard title="House of Cards" type="popular" />
+				<MovieCard title="The Crown" type="myMovie" />
+				<MovieCard title="The Crown" type="popular" />
+				<MovieCard title="Stranger Things" type="popular" />
 			</Grid>
 		</>
 	)
