@@ -75,6 +75,8 @@ export default function ListMovies() {
 									Mis películas
 									{view === "mis peliculas" ? activeIcon : <></> }
 								</div>
+
+								<div className="listMovies__dropdown__menu-arrowUp" />
 							</div>
 							</ClickAwayListener>
 						) : (

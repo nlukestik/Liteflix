@@ -35,7 +35,6 @@ $secondary-color: #242424;
 			width: 200px;
 			z-index: 3;
 			padding: 0 25px;
-			border: 1px solid white;
 			
 			&__item {
 				margin: 18px 0px;
@@ -43,6 +42,16 @@ $secondary-color: #242424;
 				display: flex;
 				justify-content: space-between;
 				cursor: pointer;
+			}
+
+			&-arrowUp {
+				position: absolute;
+				top: -6px;
+				background: $secondary-color;
+				right: 27px;
+				height: 12px;
+				width: 12px;
+				transform: rotate(45deg);
 			}
 		}
 		

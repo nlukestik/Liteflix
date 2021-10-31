@@ -7,7 +7,8 @@ import Home from './components/Home/Home';
 const useStyle = makeStyles((theme) => ({
   root : {
     // background: 'url("./assets/images/bkg.png") center/cover no-repeat',
-    background: "#242424",
+    // background: "#242424",
+    background: "#5c4b3b",
     height: "100vh",
     [theme.breakpoints.down(600)] : {
       height: "100%"
