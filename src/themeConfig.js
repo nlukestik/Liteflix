@@ -20,6 +20,9 @@ const customTheme = createTheme({
 			disabled: "rgba(0, 0, 0, 0.38)",
 			hint: "rgba(0, 0, 0, 0.38)"
 		},
+		background: {
+			default: "#242424"
+		},
 	},
 	typography: {
 		fontFamily: [

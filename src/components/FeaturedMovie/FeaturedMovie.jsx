@@ -5,8 +5,12 @@ const useStyle = makeStyles((theme) => ({
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "flex-end",
+		height: "70vh",
 		color: "white",
 		[theme.breakpoints.down(600)] : {
+			height: "85vh",
+		},
+		[theme.breakpoints.down(960)] : {
 			textAlign: "center",
 		}
 		
@@ -21,9 +25,6 @@ const useStyle = makeStyles((theme) => ({
 			paddingLeft: 64,
 			paddingRight: 64,
 		},
-		[theme.breakpoints.up(600)] : {
-			marginBottom: "10%",
-		}
 		
 	},
 	button : {
@@ -44,7 +45,7 @@ const useStyle = makeStyles((theme) => ({
 	},
 	myListButton : {
 		padding:"10px 0px",
-		border: "1px solid white", 
+		border: "1px solid rgba(255, 255, 255, 0.5)",
 		background:"rgba(36, 36, 36,0.5)",
 		color: "white",
 		"&:hover" : {
@@ -66,7 +67,7 @@ export default function FeaturedMovie() {
 
 	return(
 		<>
-			<Grid item xs={12} sm={8} className={classes.root}>
+			<Grid item xs={12} md={10} className={classes.root}>
 
 				<Typography variant="h6" style={{paddingLeft:4}}>
 					Original de Liteflix

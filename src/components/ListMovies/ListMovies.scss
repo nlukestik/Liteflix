@@ -1,0 +1,13 @@
+.listMovies {
+	padding-top: 40px;
+	background: transparent;
+	
+	&__dropdown {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+#selectViewLabel {
+	color: white;
+}
