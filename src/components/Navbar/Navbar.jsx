@@ -41,6 +41,7 @@ const useStyle = makeStyles((theme) => ({
 		display: "flex", 
 		alignItems: "center",
 		fontSize: 18,
+		fontWeight: "normal",
 		"& svg > *" : {
 			stroke: "white",
 		},
