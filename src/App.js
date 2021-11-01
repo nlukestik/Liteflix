@@ -3,29 +3,35 @@ import { ThemeProvider } from '@material-ui/styles'
 import { makeStyles } from '@material-ui/core'
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+import { useFeaturedMovie } from './hooks/useFeaturedMovie';
 
 const useStyle = makeStyles((theme) => ({
   root : {
-    // background: 'url("./assets/images/bkg.png") center/cover no-repeat',
-    // background: "#242424",
-    background: "#5c4b3b",
     height: "100vh",
-    [theme.breakpoints.down(600)] : {
-      height: "100%"
-    }
   }
 }))
 
 
 function App() {
   const classes = useStyle()
+  const {featuredMovie, loading} = useFeaturedMovie()
   
   return (
     <ThemeProvider theme={customTheme}>
-      <div className={classes.root}>
+
+      <div 
+        className={classes.root} 
+        style={!loading ? {
+          background: `url("https://image.tmdb.org/t/p/original${featuredMovie.backdrop_path}") center/cover no-repeat`
+        } : {
+          background: "#242424"
+        }}
+      >
         <Navbar />
-        <Home />
+        <Home featuredMovieTitle={!loading ? featuredMovie.original_title : ""} />
+
       </div>
+
     </ThemeProvider>
   );
 }

@@ -6,7 +6,7 @@ $secondary-color: #242424;
 	background: transparent;
 	
 	&__dropdown {
-		padding: 12px;
+		// padding: 12px;
 		position: relative;
 		display: flex;
 		justify-content: center;
@@ -21,7 +21,7 @@ $secondary-color: #242424;
 		-moz-user-select: none;
 		-ms-user-select: none;
 		color: white;
-
+		
 		&__selection {
 			display: flex;
 			justify-content: space-evenly;
@@ -34,7 +34,7 @@ $secondary-color: #242424;
 				margin-left: 5px;
 			}
 		}
-
+		
 		&__menu {
 			background-color: $secondary-color;
 			position: absolute;
@@ -50,7 +50,7 @@ $secondary-color: #242424;
 				justify-content: space-between;
 				cursor: pointer;
 			}
-
+			
 			&-arrowUp {
 				position: absolute;
 				top: -6px;
@@ -70,5 +70,6 @@ $secondary-color: #242424;
 	.listMovies{
 		padding-left: 24px;
 		padding-right: 24px;
+		background: $secondary-color;
 	}
 }

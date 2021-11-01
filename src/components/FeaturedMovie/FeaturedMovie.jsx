@@ -5,7 +5,7 @@ const useStyle = makeStyles((theme) => ({
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "flex-end",
-		height: "70vh",
+		height: "75vh",
 		color: "white",
 		[theme.breakpoints.down(600)] : {
 			height: "85vh",
@@ -15,6 +15,12 @@ const useStyle = makeStyles((theme) => ({
 		}
 		
   },
+	title : {
+		[theme.breakpoints.down(600)] : {
+			fontSize: 70,
+		},
+
+	},	
 	buttonsContainer : {
 		display: "flex",
 		justifyContent: "flex-start",
@@ -24,6 +30,8 @@ const useStyle = makeStyles((theme) => ({
 			flexDirection: "column",
 			paddingLeft: 64,
 			paddingRight: 64,
+			background: "linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%)",
+
 		},
 		
 	},
@@ -50,7 +58,7 @@ const useStyle = makeStyles((theme) => ({
 		background:"rgba(36, 36, 36,0.5)",
 		color: "white",
 		"&:hover" : {
-			color: theme.palette.secondary.main,
+			color: "black",
 			transition: "0.4s cubic-bezier(0.4, 0, 0.2, 1)",
 			"& svg" : {
 				stroke: theme.palette.secondary.main
@@ -63,7 +71,7 @@ const useStyle = makeStyles((theme) => ({
 	
 }))
 
-export default function FeaturedMovie() {
+export default function FeaturedMovie({title}) {
 	const classes = useStyle()
 
 	return(
@@ -74,8 +82,8 @@ export default function FeaturedMovie() {
 					Original de <b>Liteflix</b>
 				</Typography>
 
-				<Typography variant="h1" color="primary">
-					La casa de papel
+				<Typography variant="h1" color="primary" className={classes.title}>
+					{title}
 				</Typography>
 
 				<div className={classes.buttonsContainer}>
@@ -106,7 +114,6 @@ export default function FeaturedMovie() {
 					>
 						Mi Lista
 					</Button>
-
 				</div>
 
 			</Grid>

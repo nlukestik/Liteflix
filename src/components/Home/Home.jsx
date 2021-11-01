@@ -10,14 +10,14 @@ const useStyle = makeStyles((theme) => ({
 	
 }))
 
-export default function Home() {
+export default function Home({featuredMovieTitle}) {
 	const classes = useStyle()
 
 	return(
 		<>
 			<Grid container className={classes.root}>
 
-				<FeaturedMovie />
+				<FeaturedMovie title={featuredMovieTitle} />
 
 				<ListMovies />
 

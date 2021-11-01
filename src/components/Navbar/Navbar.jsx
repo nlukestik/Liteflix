@@ -42,6 +42,7 @@ const useStyle = makeStyles((theme) => ({
 		alignItems: "center",
 		fontSize: 18,
 		fontWeight: "normal",
+		userSelect: "none",
 		"& svg > *" : {
 			stroke: "white",
 		},
