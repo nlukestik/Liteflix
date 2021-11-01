@@ -36,7 +36,7 @@ export default function MovieCard(props) {
 								{props.rating}
 							</div>
 							
-							2018
+							{props.released.substring(0,4)}
 						</div>	
 					) : (
 						<div className="movieCard__hover-myMovie">
