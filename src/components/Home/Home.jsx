@@ -1,4 +1,5 @@
 import { makeStyles, Grid } from '@material-ui/core'
+
 import FeaturedMovie from '../FeaturedMovie/FeaturedMovie'
 import ListMovies from '../ListMovies/ListMovies'
 

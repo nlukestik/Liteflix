@@ -1,8 +1,10 @@
 import customTheme from './themeConfig'
 import { ThemeProvider } from '@material-ui/styles'
 import { makeStyles } from '@material-ui/core'
+
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+
 import { useFeaturedMovie } from './hooks/useFeaturedMovie';
 
 const useStyle = makeStyles((theme) => ({
