@@ -4,9 +4,11 @@ import { Grid, ClickAwayListener, Typography } from "@material-ui/core";
 import "./ListMovies.scss"
 import PopularMovies from "../PopularMovies/PopularMovies";
 import MyMovies from "../MyMovies/MyMovies";
+import { usePopularMovies } from "../../hooks/usePopularMovies";
 
 export default function ListMovies() {
   const [view, setView] = useState('populares');
+	const {popularMovies, loading} = usePopularMovies()
 
 	const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
@@ -99,7 +101,7 @@ export default function ListMovies() {
 				</div>
 
 				{view === "populares" ? 
-					<PopularMovies />
+					<PopularMovies movies={!loading ? popularMovies : null} />
 					:
 					<MyMovies />
 				}

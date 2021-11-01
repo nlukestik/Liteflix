@@ -4,7 +4,6 @@ $mC: movieCard;
 
 .movieCard {
 	position: relative;
-	background: $primary-color;
 	height: 120px;
 	width: 100%;
 	display: flex;
@@ -44,6 +43,11 @@ $mC: movieCard;
 		&__title {
 			padding: 11px 0px;
 			color: white;
+			text-align: center;
+			width: 85%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 	}
@@ -75,6 +79,8 @@ $mC: movieCard;
 				&__title {
 					padding: 0px 0px 0px 12px;
 					font-size: 12px;
+					text-align: left;
+					white-space: normal;
 				}
 
 			}

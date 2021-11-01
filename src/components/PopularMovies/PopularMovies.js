@@ -1,12 +1,18 @@
 import MovieCard from "../MovieCard/MovieCard";
 
-export default function PopularMovies() {
+
+export default function PopularMovies({movies}) {
+
 	return(
 		<>
-			<MovieCard title="House of Cards" type="popular" />
-			<MovieCard title="The Crown" type="popular" />
-			<MovieCard title="Stranger Things" type="popular" />
-			<MovieCard title="Marseille" type="popular" />
+			{movies && movies.map((m) => (
+				<MovieCard 
+					title={m.original_title} 
+					bkg={`https://image.tmdb.org/t/p/w300/${m.backdrop_path}`}
+					rating={m.vote_average}
+					type="popular"
+				/>
+			))}
 		</>
 	)
-};
+}
