@@ -41,16 +41,15 @@ export default function ListMovies() {
 		<>
 			<Grid item xs={12} md={2} className="listMovies">
 				<div className="listMovies__dropdown">
-					<div 
-						onClick={handleToggle}
-						className="listMovies__dropdown__selection" 
-					>
-						<Typography style={(view !== "populares") && !isMobile ? {fontSize:14} : {}}>
-							Ver: <b>{" "+ view}</b>
+
+					<div onClick={handleToggle}>
+						<Typography 
+							className="listMovies__dropdown__selection"
+							style={(view !== "populares") && !isMobile ? {fontSize:14} : {}}
+						>
+							<span>Ver: <b>{" "+ view}</b></span>
 							{arrowDownIcon}
 						</Typography>
-
-
 					</div>
 						
 					{
