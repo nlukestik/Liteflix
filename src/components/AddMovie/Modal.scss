@@ -47,10 +47,14 @@ $secondary-color: #242424;
 			z-index: 1301;
 		}
 	}
+	.MuiDialog-paperWidthSm{max-width: 100%;}
+	.MuiDialog-paper{overflow-y: none;}
+	.MuiDialog-paper{overflow-y: unset;}
 }
 
 @media (max-width: 600px) {
 	.modal {
+		.MuiDialog-paperScrollPaper{max-height: 100vh;}
 		&__content {
 			height: 100vh;
 			padding-top: 20px;

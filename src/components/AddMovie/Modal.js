@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles, Modal, Backdrop, Fade, Typography, Input, Button } from '@material-ui/core';
+import { makeStyles, Modal, Backdrop, Fade, Typography, Input, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 import Dropzone from "./Dropzone"
 
 import "./Modal.scss"
@@ -57,21 +57,11 @@ export default function AddMovieModal() {
 
   return (
     <div>
-      <Modal
-        aria-labelledby="modal-title"
-        aria-describedby="modal-description"
-        className="modal"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className="modal__content">
-            <Typography variant="h5" id="modal-title">Agregar Película</Typography>
+      
+			<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" className="modal">
+				<Fade in={open}>
+					<div className="modal__content">
+						<Typography variant="h5" id="modal-title">Agregar Película</Typography>
 
 						<Dropzone/>
 
@@ -99,9 +89,10 @@ export default function AddMovieModal() {
 								<path d="M1.42892 15.571L15.5711 1.42887" stroke="white" strokeLinecap="square"/>
 							</svg>
 						</div>
-          </div>
-        </Fade>
-      </Modal>
+					</div>
+				</Fade>
+      </Dialog>
+
     </div>
   );
 }
