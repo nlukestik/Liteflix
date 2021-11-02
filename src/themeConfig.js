@@ -23,6 +23,10 @@ const customTheme = createTheme({
 		background: {
 			default: "#242424"
 		},
+		action: {
+      disabled: "rgba(36,36,36,1)",
+			disabledBackground: "rgba(255,255,255,0.4)"
+		}
 	},
 	typography: {
 		fontFamily: [
@@ -46,7 +50,9 @@ const customTheme = createTheme({
 			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif"
 		},
 		h5: {
-			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif"
+			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",
+			fontWeight: 700,
+			fontSize: 20,	
 		},
 		h6: {
 			fontFamily: "'Bebas Neue','Helvetica','Arial',sans-serif",

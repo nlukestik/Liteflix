@@ -1,9 +1,11 @@
 import { makeStyles, AppBar, Toolbar, Container } from "@material-ui/core"
 import logo from "../../assets/images/logo.svg"
 import avatar from "../../assets/images/avatar.png"
+import AddMovieModal from "../AddMovie/Modal"
 
 const useStyle = makeStyles((theme) => ({
 	navBar: {
+		position: "relative",
 		background: "transparent",
 		color: "white",
 		boxShadow: "none",
@@ -16,6 +18,9 @@ const useStyle = makeStyles((theme) => ({
 		"& .MuiToolbar-gutters" : {
 			paddingLeft: 24,
 			paddingRight: 24,
+		},
+		[theme.breakpoints.down(600)] : {
+			zIndex: 1301,
 		}
 	},
 	midSection: {
@@ -101,7 +106,7 @@ const useStyle = makeStyles((theme) => ({
 export default function Navbar() {
 	const classes = useStyle()
 	return(
-		<AppBar position="sticky" className={classes.navBar}>
+		<AppBar className={classes.navBar}>
 			<Container style={{maxWidth: 1232, padding:0}}>
 				<Toolbar>
 					<div className={classes.addMovieMobile}>
@@ -114,7 +119,7 @@ export default function Navbar() {
 					<div className={classes.midSection}>
 						<img src={logo} alt="Liteflix" />
 						
-						<div className={classes.addMovieDesk +" pointer"}>
+						<div className={classes.addMovieDesk +" pointer"} >
 							<svg  width="17" height="17" viewBox="0 0 17 16" style={{marginRight:10}}>
 								<g fillRule="evenodd" strokeLinecap="square">
 									<path d="M16.5 8H.5M8.5 0v16"/>

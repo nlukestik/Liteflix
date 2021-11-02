@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core'
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+import AddMovie from './components/AddMovie/AddMovie';
 
 import { useFeaturedMovie } from './hooks/useFeaturedMovie';
 
@@ -31,7 +32,8 @@ function App() {
       >
         <Navbar />
         <Home featuredMovieTitle={!loading ? featuredMovie.original_title : ""} />
-
+        
+        <AddMovie />
       </div>
 
     </ThemeProvider>
