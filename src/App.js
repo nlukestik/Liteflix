@@ -27,7 +27,7 @@ function App() {
       <div 
         className={classes.root} 
         style={!loading ? {
-          background: `url("https://image.tmdb.org/t/p/w1280/${featuredMovie.backdrop_path}") center/cover no-repeat`
+          background: `url("https://image.tmdb.org/t/p/original/${featuredMovie.backdrop_path}") center/cover no-repeat`
         } : {
           background: "#242424"
         }}

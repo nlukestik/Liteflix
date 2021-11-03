@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { Grid, ClickAwayListener, Typography } from "@material-ui/core";
-
-import "./ListMovies.scss"
+import { isMobile } from "../../utils";
 import PopularMovies from "../PopularMovies/PopularMovies";
 import MyMovies from "../MyMovies/MyMovies";
 import { usePopularMovies } from "../../hooks/usePopularMovies";
-import { isMobile } from "../../utils";
+
+import "./ListMovies.scss"
 
 export default function ListMovies() {
   const [view, setView] = useState('populares');

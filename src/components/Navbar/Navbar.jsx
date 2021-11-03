@@ -2,103 +2,31 @@ import { makeStyles, AppBar, Toolbar, Container } from "@material-ui/core"
 import logo from "../../assets/images/logo.svg"
 import avatar from "../../assets/images/avatar.png"
 
+import "./Navbar.scss"
+
 const useStyle = makeStyles((theme) => ({
-	navBar: {
+	navbar: {
 		position: "relative",
 		background: "transparent",
 		color: "white",
 		boxShadow: "none",
+		
+		[theme.breakpoints.down(600)] : {
+			zIndex: 1301,
+		},
 		"& .MuiToolbar-regular" : {
 			display: "flex",
 			justifyContent: "space-between",
 			alignItems: "center",
 			minHeight: 80,
+			[theme.breakpoints.down(600)] : {
+				minHeight: 70,
+			}
 		},
-		"& .MuiToolbar-gutters" : {
+		"& .MuiToolbar-gutters" :{
 			paddingLeft: 24,
 			paddingRight: 24,
-		},
-		[theme.breakpoints.down(600)] : {
-			zIndex: 1301,
 		}
-	},
-	midSection: {
-		display: "flex",
-		justifyContent: "space-between",
-		alignItems: "center",
-		width: 400,
-		"& > img" : {
-			marginRight: 5,
-			height: 34,
-			width: 113,
-		},
-		[theme.breakpoints.down(600)] : {
-			width: "auto",
-			"& > img" : {
-				height: 28,
-				width: 98,
-				marginRight:0,
-			},
-		}
-	},
-	addMovieDesk : {
-		display: "flex", 
-		alignItems: "center",
-		fontSize: 18,
-		fontWeight: "normal",
-		userSelect: "none",
-		"& svg > *" : {
-			stroke: "white",
-		},
-		[theme.breakpoints.down(600)] : {
-			display: "none",
-		},
-		"&:hover ": {
-			color: theme.palette.primary.main,
-			"& svg > *" : {
-				stroke: theme.palette.primary.main
-			}
-		}
-	},
-	addMovieMobile : {
-		display: "none", 
-		alignItems: "center",
-		border: "1px solid white",
-		borderRadius: "100%",
-		padding: 9,
-		[theme.breakpoints.down(600)] : {
-			display: "flex",
-		}
-	},
-	menuContainer: {
-		display: "flex",
-		alignItems: "center",
-		padding: 0,
-		"& > div" : {
-			paddingLeft: 40,
-			display: "flex",
-		},
-		[theme.breakpoints.down(600)]: {
-			"& > div:nth-child(-n + 2)" : {          
-				display: "none",
-			},
-			"& > div" : {
-				paddingLeft: 0,
-			},
-		},
-	},
-	avatar : {
-		border: "2px solid transparent",
-		borderRadius: "100%",
-		height: 40,
-		width: 40,
-		"&:hover" : {
-			borderColor: theme.palette.primary.main,
-		},
-		[theme.breakpoints.down(600)]: {
-			height: 36,
-			width: 36,
-		},
 	},
 }))
 
@@ -107,11 +35,11 @@ export default function Navbar({isModalOpen, onPressAddMovie}) {
 
 	return(
 
-		<AppBar className={classes.navBar}>
+		<AppBar className={classes.navbar}>
 			<Container style={{maxWidth: 1232, padding:0}}>
 				<Toolbar>
 				
-					<div className={classes.addMovieMobile} style={isModalOpen ? {visibility:"hidden"} : {visibility: "visible"}} onClick={() => onPressAddMovie(true)}>
+					<div className="addMovieMobile" style={isModalOpen ? {visibility:"hidden"} : {visibility: "visible"}} onClick={() => onPressAddMovie(true)}>
 						<svg  width="17" height="17" viewBox="0 0 17 16">
 							<g fillRule="evenodd" stroke="#fff" strokeLinecap="square">
 								<path d="M16.5 8H.5M8.5 0v16"/>
@@ -119,11 +47,11 @@ export default function Navbar({isModalOpen, onPressAddMovie}) {
 						</svg>
 					</div>
 
-					<div className={classes.midSection}>
+					<div className="midSection">
 						<img src={logo} alt="Liteflix" />
 
 						{!isModalOpen && (
-							<div className={classes.addMovieDesk +" pointer"} onClick={() => onPressAddMovie(true)}>
+							<div className="addMovieDesk pointer" onClick={() => onPressAddMovie(true)}>
 								<svg  width="17" height="17" viewBox="0 0 17 16" style={{marginRight:10}}>
 									<g fillRule="evenodd" strokeLinecap="square">
 										<path d="M16.5 8H.5M8.5 0v16"/>
@@ -134,9 +62,9 @@ export default function Navbar({isModalOpen, onPressAddMovie}) {
 						)}
 
 					</div>
-					<div className={classes.menuContainer}>
+					<div className="menuContainer">
 						<div>
-							<svg width="27" height="14" viewBox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg width="27" height="14" viewBox="0 0 27 14" fill="none">
 								<path d="M0 1H27" stroke="white"/>
 								<path d="M0 7H27" stroke="white"/>
 								<path d="M10 13H27" stroke="white"/>
@@ -150,7 +78,7 @@ export default function Navbar({isModalOpen, onPressAddMovie}) {
 							</svg>
 						</div>
 						<div>
-							<img src={avatar} className={classes.avatar} alt="profile avatar" />
+							<img src={avatar} className="avatar" alt="profile avatar" />
 						</div>
 					</div>
 					{/* <div className={classes.drawerMenuContainer}>

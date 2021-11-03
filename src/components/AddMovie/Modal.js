@@ -42,7 +42,7 @@ const useStyle = makeStyles((theme) => ({
 
 export default function AddMovieModal({isModalOpen, setModalOpen}) {
   const classes = useStyle()
-	const [movieTitle, setMovieTitle] = useState(null)
+	const [movieTitle, setMovieTitle] = useState("")
 	const [image, setImage] = useState(null);
 	const [addedDate, setAddedDate] = useState("")
 	
@@ -57,6 +57,13 @@ export default function AddMovieModal({isModalOpen, setModalOpen}) {
 			window.localStorage.setItem('movies', movies)
 		}
 		else { window.localStorage.setItem('movies', newMovie)}
+		setModalOpen(false)
+	}
+
+	const handleClose = () => {
+		setMovieTitle("")
+		setImage(null)
+		setAddedDate("")
 		setModalOpen(false)
 	}
 	
@@ -88,13 +95,13 @@ export default function AddMovieModal({isModalOpen, setModalOpen}) {
 							<Button
 								variant="contained"
 								color="secondary"
-								onClick={() => setModalOpen(false)}
+								onClick={handleClose}
 								className={classes.button+" "+classes.exitMobile}
 							>
 								Salir
 							</Button>
 						</div>
-						<div className="exitDesk pointer" onClick={() => setModalOpen(false)}>
+						<div className="exitDesk pointer" onClick={handleClose}>
 							<svg width="17" height="17" viewBox="0 0 17 17" fill="none">
 								<path d="M1.42892 1.42899L15.5711 15.5711" stroke="white" strokeLinecap="square"/>
 								<path d="M1.42892 15.571L15.5711 1.42887" stroke="white" strokeLinecap="square"/>
