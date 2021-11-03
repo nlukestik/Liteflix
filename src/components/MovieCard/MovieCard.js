@@ -8,7 +8,7 @@ export default function MovieCard(props) {
 
 	return(
 		isPopular ? (
-			<div style={{background: `url("https://image.tmdb.org/t/p/original${props.bkg}") center/cover no-repeat`}}>
+			<div style={{background: `url("https://image.tmdb.org/t/p/original${props.bkg}") center/cover no-repeat`, borderRadius:3}}>
 				<div className="movieCard">
 					<div className="movieCard__content">
 						<Button
@@ -41,7 +41,7 @@ export default function MovieCard(props) {
 				</div>
 			</div>
 		) : (
-			<div style={{background: `url("${props.bkg}") center/cover no-repeat`}}>
+			<div style={{background: `url("${props.bkg}") center/cover no-repeat`, borderRadius:3}}>
 				<div className="movieCard">
 					<div className="movieCard__content">
 						<Button
