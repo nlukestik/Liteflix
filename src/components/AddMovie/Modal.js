@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles, Typography, Input, Button, Dialog } from '@material-ui/core';
 import Dropzone from "./Dropzone"
+import { isMobile } from '../../utils';
+import logo from "../../assets/images/logo.svg"
 
 import "./Modal.scss"
 
@@ -25,6 +27,7 @@ const useStyle = makeStyles((theme) => ({
 		color: "rgba(36, 36, 36,1)",
 		"&:hover" : {
 			boxShadow: "none",
+			background: "rgba(255, 255, 255, 0.5)",
 		},
 	},
 	exitMobile : {
@@ -44,12 +47,15 @@ export default function AddMovieModal({isModalOpen, setModalOpen}) {
   const classes = useStyle()
 	const [movieTitle, setMovieTitle] = useState("")
 	const [image, setImage] = useState(null);
+	const [onUpLoadFinished, setOnUpLoadFinished] = useState(false)
 	
 	const handleClose = () => {
-		setMovieTitle("")
-		setImage(null)
-		// setAddedDate("")
 		setModalOpen(false)
+		setTimeout(() => {
+			setMovieTitle("")
+			setImage(null)
+			setOnUpLoadFinished(false)
+		}, 300);
 	}
 	
 	const handleAddMovie = () => {
@@ -63,7 +69,7 @@ export default function AddMovieModal({isModalOpen, setModalOpen}) {
 			console.log(`SetItem: ${addedDate} `)
 		}
 		else { window.localStorage.setItem('movies', newMovie)}
-		handleClose()
+		setOnUpLoadFinished(true)
 	}
 
   return (
@@ -71,34 +77,57 @@ export default function AddMovieModal({isModalOpen, setModalOpen}) {
       
 			<Dialog open={isModalOpen} onClose={() => setModalOpen(false)} aria-labelledby="dialog-modal" className="modal">
 				<div className="modal__content">
-					<Typography variant="h5" id="modal-title">Agregar Película</Typography>
+					{!onUpLoadFinished ? (
+						<>
+							<Typography variant="h5" id="modal-title">Agregar Película</Typography>
 
-					<Dropzone setImage={setImage} />
+							<Dropzone setImage={setImage} />
 
-					<Input 
-						placeholder="Título" 
-						value={movieTitle} 
-						onChange={(e) => setMovieTitle(e.target.value)}
-					/>
+							<Input 
+								placeholder="Título" 
+								value={movieTitle} 
+								onChange={(e) => setMovieTitle(e.target.value)}
+							/>
 
-					<div className={classes.buttonsContainer}>
-						<Button
-							variant="contained"
-							className={classes.button}
-							disabled={(!image || !movieTitle)}
-							onClick={handleAddMovie}
-						>
-							Subir película
-						</Button>
-						<Button
-							variant="contained"
-							color="secondary"
-							onClick={handleClose}
-							className={classes.button+" "+classes.exitMobile}
-						>
-							Salir
-						</Button>
-					</div>
+							<div className={classes.buttonsContainer}>
+								<Button
+									variant="contained"
+									className={classes.button}
+									disabled={(!image || !movieTitle)}
+									onClick={handleAddMovie}
+								>
+									Subir película
+								</Button>
+								<Button
+									variant="contained"
+									color="secondary"
+									onClick={handleClose}
+									className={classes.button+" "+classes.exitMobile}
+								>
+									Salir
+								</Button>
+							</div>
+						</>
+					) : (
+						<>
+							{!isMobile(600) ? <img src={logo} alt="Liteflix" /> : <React.Fragment/>}
+
+							<div style={{margin: "60px 0"}}>
+								<Typography variant="h5" style={{fontSize:24,marginBottom:24}}><b>¡Felicitaciones!</b></Typography>
+								
+								<Typography variant="h6">{movieTitle} fue correctamente subida.</Typography>
+							</div>
+
+							<Button
+								variant="contained"
+								color="secondary"
+								onClick={handleClose}
+								className={classes.button}
+							>
+								Ir a Home
+							</Button>
+						</>
+					) }
 					<div className="exitDesk pointer" onClick={handleClose}>
 						<svg width="17" height="17" viewBox="0 0 17 17" fill="none">
 							<path d="M1.42892 1.42899L15.5711 15.5711" stroke="white" strokeLinecap="square"/>
