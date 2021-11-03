@@ -11,17 +11,14 @@ export default function Dropzone({setImage}) {
   const [onError, setOnError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 	
-	const onDrop = useCallback((acceptedImage) => {
-		acceptedImage.forEach((e) => {
-      const imageReader = new FileReader()
+	const onDrop = useCallback((acceptedFile, rejectedFile) => {
+		acceptedFile.forEach((e) => {
+			setIsLoading(true)
 
-      imageReader.onabort = () => 
-				console.log("Lectura de imagen abortada")
+      const imageReader = new FileReader()
 
       imageReader.onprogress = (e) =>
 				setProgress(Math.round(e.loaded * 100 / e.total))
-
-			setIsLoading(true)
 
       imageReader.onerror = () => setOnError(true)
 
@@ -33,6 +30,10 @@ export default function Dropzone({setImage}) {
 
       imageReader.readAsDataURL(e)
     })
+
+		rejectedFile.forEach((e) => {
+			setOnError(true)
+		})
 	}, [setImage])
 
 	const { getRootProps, getInputProps } = useDropzone({
@@ -54,7 +55,7 @@ export default function Dropzone({setImage}) {
 						<LinearProgress variant="determinate" value={progress} />
 					</div>
 
-					<p>
+					<p onClick={() => setIsLoading(false)}>
 						<b>Cancelar</b>
 					</p>
 				</div>
@@ -70,7 +71,7 @@ export default function Dropzone({setImage}) {
 						<LinearProgress variant="determinate" value={100} />
 					</div>
 
-					<p>
+					<p onClick={() => setOnError(false)}>
 						<b>Reintentar</b>
 					</p>
 				</div>
@@ -86,7 +87,7 @@ export default function Dropzone({setImage}) {
 						<LinearProgress variant="determinate" value={100} />
 					</div>
 
-					<p style={{color: "#64EEBC"}}>
+					<p style={{color: "#64EEBC", cursor: "default"}}>
 						¡Listo!
 					</p>
 				</div>
