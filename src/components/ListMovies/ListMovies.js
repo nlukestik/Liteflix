@@ -4,6 +4,8 @@ import { isMobile } from "../../utils";
 import PopularMovies from "../PopularMovies/PopularMovies";
 import MyMovies from "../MyMovies/MyMovies";
 import { usePopularMovies } from "../../hooks/usePopularMovies";
+import { ReactComponent as CheckIcon } from '../../statics/check.svg'
+import { ReactComponent as ArrowDownIcon } from '../../statics/arrowDown.svg'
 
 import "./ListMovies.scss"
 
@@ -17,25 +19,6 @@ export default function ListMovies() {
     setIsDropdownVisible(!isDropdownVisible)
   };
 
-	const arrowDownIcon = <>
-		<svg 
-			width="15" 
-			height="8" 
-			viewBox="0 0 13 6"
-			style={isDropdownVisible ? 
-				{transform: "rotateX(180deg)", transition:".3s"} : {}}
-		>
-			<path fill="none" fillRule="evenodd" stroke="#FFF" strokeLinecap="round" d="M1 0l5.546 5.546L12.09 0"/>
-		</svg>
-	</>
-
-	const activeIcon = <>
-		<svg width="14" height="11" viewBox="0 0 14 11" fill="none">
-			<path d="M1 5L5 9L13 1" stroke="white" strokeWidth="2"/>
-		</svg>
-	</>
-
-
 	return(
 		<>
 			<Grid item xs={12} md={2} className="listMovies">
@@ -47,7 +30,16 @@ export default function ListMovies() {
 							style={(view !== "populares") && !isMobile(960) ? {fontSize:14} : {}}
 						>
 							<span>Ver: <b>{" "+ view}</b></span>
-							{arrowDownIcon}
+							<div 
+								style={{
+									transform: isDropdownVisible ? "rotateX(180deg)" : "rotateX(0deg)", 
+									transition:".3s",
+									display: "flex",
+									alignItems: "center",
+								}}
+							>
+								<ArrowDownIcon />
+							</div>
 						</Typography>
 					</div>
 						
@@ -65,7 +57,7 @@ export default function ListMovies() {
 									{view === "populares" ? (
 										<>
 											<b>Populares</b>
-											{activeIcon}
+											<CheckIcon />
 										</>
 									) : 
 										"Populares"
@@ -82,7 +74,7 @@ export default function ListMovies() {
 									{view === "mis peliculas" ? (
 										<>
 											<b>Mis películas</b>
-											{activeIcon}
+											<CheckIcon />
 										</>
 									) : 
 										"Mis películas"

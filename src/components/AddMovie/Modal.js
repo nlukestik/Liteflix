@@ -3,6 +3,7 @@ import { makeStyles, Typography, Input, Button, Dialog } from '@material-ui/core
 import Dropzone from "./Dropzone"
 import { isMobile } from '../../utils';
 import logo from "../../assets/images/logo.svg"
+import { ReactComponent as ExitIcon } from '../../statics/cross.svg'
 
 import "./Modal.scss"
 
@@ -129,10 +130,7 @@ export default function AddMovieModal({isModalOpen, setModalOpen}) {
 						</>
 					) }
 					<div className="exitDesk pointer" onClick={handleClose}>
-						<svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-							<path d="M1.42892 1.42899L15.5711 15.5711" stroke="white" strokeLinecap="square"/>
-							<path d="M1.42892 15.571L15.5711 1.42887" stroke="white" strokeLinecap="square"/>
-						</svg>
+						<ExitIcon />
 					</div>
 				</div>
       </Dialog>

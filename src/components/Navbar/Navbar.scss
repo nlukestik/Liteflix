@@ -19,12 +19,13 @@ $secondary-color: #242424;
 	font-size: 18px;
 	font-weight: normal;
 	user-select: none;
-	svg > * {
+	svg {
+		margin-right: 10px;
 		stroke: white;
 	}
 	&:hover {
 		color: $primary-color;
-		svg > * {
+		svg {
 			stroke: $primary-color;
 		}
 	}
@@ -36,6 +37,9 @@ $secondary-color: #242424;
 	border: 1px solid white;
 	border-radius: 100%;
 	padding: 9px;
+	svg {
+		stroke: white;
+	}
 }
 
 .menuContainer {

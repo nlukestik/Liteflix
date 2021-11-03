@@ -1,5 +1,7 @@
 import { makeStyles, Grid, Typography, Button } from '@material-ui/core'
 import { isMobile } from "../../utils"
+import { ReactComponent as PlayIcon } from '../../statics/play.svg'
+import { ReactComponent as AddIcon } from '../../statics/add.svg'
 
 const useStyle = makeStyles((theme) => ({
 	root : {
@@ -59,7 +61,6 @@ const useStyle = makeStyles((theme) => ({
 		color: "white",
 		"&:hover" : {
 			color: "black",
-			transition: "0.4s cubic-bezier(0.4, 0, 0.2, 1)",
 			"& svg" : {
 				stroke: theme.palette.secondary.main
 			}
@@ -100,11 +101,7 @@ export default function FeaturedMovie({title}) {
 						variant="contained"
 						color="secondary"
 						className={classes.button}
-						startIcon={
-							<svg width="11" height="16" viewBox="0 0 11 16" fill="none">
-								<path fillRule="evenodd" clipRule="evenodd" d="M9.94234 8.2363L0.625 1.875V14.125L9.94234 8.2363Z"/>
-							</svg>
-						}
+						startIcon={<PlayIcon />}
 					>
 						Reproducir
 					</Button>
@@ -112,14 +109,7 @@ export default function FeaturedMovie({title}) {
 					<Button
 						variant="contained"
 						className={classes.button+" "+classes.myListButton}
-						startIcon={
-							<svg width="17" height="17" viewBox="0 0 17 16">
-								<g fill="none" fillRule="evenodd" strokeLinecap="square">
-										<path d="M16.5 8H.5M8.5 0v16"/>
-								</g>
-							</svg>
-
-						}
+						startIcon={<AddIcon />}
 					>
 						Mi Lista
 					</Button>
