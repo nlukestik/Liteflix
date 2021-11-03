@@ -1,4 +1,5 @@
 import { makeStyles, Grid, Typography, Button } from '@material-ui/core'
+import { isMobile } from "../../utils"
 
 const useStyle = makeStyles((theme) => ({
 	root : {
@@ -17,7 +18,6 @@ const useStyle = makeStyles((theme) => ({
   },
 	title : {
 		[theme.breakpoints.down(600)] : {
-			fontSize: 55,
 			textAlign: "center",
 		},
 
@@ -32,7 +32,6 @@ const useStyle = makeStyles((theme) => ({
 			paddingLeft: 64,
 			paddingRight: 64,
 			background: "linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%)",
-
 		},
 		
 	},
@@ -83,7 +82,16 @@ export default function FeaturedMovie({title}) {
 					Original de <b>Liteflix</b>
 				</Typography>
 
-				<Typography variant="h1" color="primary" className={classes.title}>
+				<Typography 
+					variant="h1" 
+					color="primary" 
+					className={classes.title}
+					style={isMobile(600) && (title.length > 18) ? 
+						{fontSize:"60px"}
+						: isMobile(600) ?
+							{fontSize:"76"}
+						: {fontSize:""}}
+				>
 					{title}
 				</Typography>
 

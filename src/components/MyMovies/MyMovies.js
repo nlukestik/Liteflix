@@ -1,4 +1,5 @@
-import MovieCard from "../MovieCard/MovieCard";
+import MovieCard from "../MovieCard/MovieCard"
+import { Typography } from "@material-ui/core"
 
 const localStorage = window.localStorage.getItem("movies")
 
@@ -23,7 +24,15 @@ export default function MyMovies() {
 		localStorage ?
 			showMovies()
 			:
-			<div>No se encontraron películas</div>
+			<div>
+				<Typography variant="body1" align="center" style={{color: "white"}}>
+					<b>Sin películas.</b>
+				</Typography>
+				<Typography variant="body2" align="center" style={{color: "white"}}>
+					Agregue una para poder visualizarla aquí.
+				</Typography>
+
+			</div>
 		
 	)
 };
