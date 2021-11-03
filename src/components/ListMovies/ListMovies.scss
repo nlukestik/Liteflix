@@ -42,6 +42,10 @@ $secondary-color: #242424;
 			width: 200px;
 			z-index: 3;
 			padding: 0 25px;
+
+			svg {
+				stroke: white;
+			}
 			
 			&__item {
 				margin: 18px 0px;

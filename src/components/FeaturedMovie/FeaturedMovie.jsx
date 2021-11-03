@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { makeStyles, Grid, Typography, Button } from '@material-ui/core'
 import { isMobile } from "../../utils"
 import { ReactComponent as PlayIcon } from '../../statics/play.svg'
 import { ReactComponent as AddIcon } from '../../statics/add.svg'
+import { ReactComponent as CheckIcon } from '../../statics/check.svg'
+import "./FeaturedMovie.scss"
 
 const useStyle = makeStyles((theme) => ({
 	root : {
@@ -62,7 +65,7 @@ const useStyle = makeStyles((theme) => ({
 		"&:hover" : {
 			color: "black",
 			"& svg" : {
-				stroke: theme.palette.secondary.main
+				stroke: theme.palette.secondary.main,
 			}
 		},
 		[theme.breakpoints.up(600)] : {
@@ -74,24 +77,26 @@ const useStyle = makeStyles((theme) => ({
 
 export default function FeaturedMovie({title}) {
 	const classes = useStyle()
+	const [myList, setMyList] = useState(false)
 
 	return(
 		<>
 			<Grid item xs={12} md={10} className={classes.root}>
 
-				<Typography variant="h6" style={{paddingLeft:4}}>
+				<Typography variant="h6" style={{paddingLeft:4}} className="pretitle-animation">
 					Original de <b>Liteflix</b>
 				</Typography>
 
 				<Typography 
 					variant="h1" 
 					color="primary" 
-					className={classes.title}
+					className={`${classes.title} title-animation`}
 					style={isMobile(600) && (title.length > 18) ? 
 						{fontSize:"60px"}
 						: isMobile(600) ?
 							{fontSize:"76"}
-						: {fontSize:""}}
+						: {fontSize:""}
+					}
 				>
 					{title}
 				</Typography>
@@ -100,7 +105,7 @@ export default function FeaturedMovie({title}) {
 					<Button
 						variant="contained"
 						color="secondary"
-						className={classes.button}
+						className={`${classes.button} button-play-animation`}
 						startIcon={<PlayIcon />}
 					>
 						Reproducir
@@ -108,8 +113,9 @@ export default function FeaturedMovie({title}) {
 
 					<Button
 						variant="contained"
-						className={classes.button+" "+classes.myListButton}
-						startIcon={<AddIcon />}
+						className={`${classes.button} ${classes.myListButton} button-myList-animation`}
+						startIcon={!myList ? <AddIcon /> : <CheckIcon />}
+						onClick={() => setMyList(!myList)}
 					>
 						Mi Lista
 					</Button>

@@ -9,6 +9,7 @@ import Home from './components/Home/Home';
 import { useFeaturedMovie } from './hooks/useFeaturedMovie';
 import AddMovieModal from './components/AddMovie/Modal';
 
+
 const useStyle = makeStyles((theme) => ({
   root : {
     height: "100vh",
@@ -24,12 +25,11 @@ function App() {
   return (
     <ThemeProvider theme={customTheme}>
 
-      <div 
+      <div
         className={classes.root} 
-        style={!loading ? {
-          background: `url("https://image.tmdb.org/t/p/original/${featuredMovie.backdrop_path}") center/cover no-repeat`
-        } : {
-          background: "#242424"
+        style={{ background: !loading ? 
+          `url("https://image.tmdb.org/t/p/original/${featuredMovie.backdrop_path}") center/cover no-repeat`
+          : "#242424"
         }}
       >
         <Navbar isModalOpen={openModal} onPressAddMovie={setOpenModal} />

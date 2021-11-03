@@ -63,6 +63,7 @@ export default function Navbar({isModalOpen, onPressAddMovie}) {
 						</div>
 						<div className="menuContainer__bell pointer">
 							<BellIcon />
+							<div className="menuContainer__bell-notif" />
 						</div>
 						<div>
 							<img src={avatar} className="avatar" alt="profile avatar" />
