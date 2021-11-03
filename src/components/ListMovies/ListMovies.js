@@ -5,6 +5,7 @@ import "./ListMovies.scss"
 import PopularMovies from "../PopularMovies/PopularMovies";
 import MyMovies from "../MyMovies/MyMovies";
 import { usePopularMovies } from "../../hooks/usePopularMovies";
+import { isMobile } from "../../utils";
 
 export default function ListMovies() {
   const [view, setView] = useState('populares');
@@ -15,8 +16,6 @@ export default function ListMovies() {
 	const handleToggle = () => {
     setIsDropdownVisible(!isDropdownVisible)
   };
-
-	const isMobile = window.innerWidth < 960
 
 	const arrowDownIcon = <>
 		<svg 
@@ -45,7 +44,7 @@ export default function ListMovies() {
 					<div onClick={handleToggle}>
 						<Typography 
 							className="listMovies__dropdown__selection"
-							style={(view !== "populares") && !isMobile ? {fontSize:14} : {}}
+							style={(view !== "populares") && !isMobile(960) ? {fontSize:14} : {}}
 						>
 							<span>Ver: <b>{" "+ view}</b></span>
 							{arrowDownIcon}

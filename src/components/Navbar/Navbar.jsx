@@ -1,7 +1,6 @@
 import { makeStyles, AppBar, Toolbar, Container } from "@material-ui/core"
 import logo from "../../assets/images/logo.svg"
 import avatar from "../../assets/images/avatar.png"
-import AddMovieModal from "../AddMovie/Modal"
 
 const useStyle = makeStyles((theme) => ({
 	navBar: {
@@ -103,30 +102,36 @@ const useStyle = makeStyles((theme) => ({
 	},
 }))
 
-export default function Navbar() {
+export default function Navbar({isModalOpen, onPressAddMovie}) {
 	const classes = useStyle()
+
 	return(
+
 		<AppBar className={classes.navBar}>
 			<Container style={{maxWidth: 1232, padding:0}}>
 				<Toolbar>
-					<div className={classes.addMovieMobile}>
+				
+					<div className={classes.addMovieMobile} style={isModalOpen ? {visibility:"hidden"} : {visibility: "visible"}} onClick={() => onPressAddMovie(true)}>
 						<svg  width="17" height="17" viewBox="0 0 17 16">
 							<g fillRule="evenodd" stroke="#fff" strokeLinecap="square">
 								<path d="M16.5 8H.5M8.5 0v16"/>
 							</g>
 						</svg>
 					</div>
+
 					<div className={classes.midSection}>
 						<img src={logo} alt="Liteflix" />
-						
-						<div className={classes.addMovieDesk +" pointer"} >
-							<svg  width="17" height="17" viewBox="0 0 17 16" style={{marginRight:10}}>
-								<g fillRule="evenodd" strokeLinecap="square">
-									<path d="M16.5 8H.5M8.5 0v16"/>
-								</g>
-							</svg>
-							<span style={{paddingTop:2}}>Agregar película</span>
-						</div>
+
+						{!isModalOpen && (
+							<div className={classes.addMovieDesk +" pointer"} onClick={() => onPressAddMovie(true)}>
+								<svg  width="17" height="17" viewBox="0 0 17 16" style={{marginRight:10}}>
+									<g fillRule="evenodd" strokeLinecap="square">
+										<path d="M16.5 8H.5M8.5 0v16"/>
+									</g>
+								</svg>
+								<span style={{paddingTop:2}}>Agregar película</span>
+							</div>
+						)}
 
 					</div>
 					<div className={classes.menuContainer}>

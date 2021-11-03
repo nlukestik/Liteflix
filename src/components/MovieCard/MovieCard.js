@@ -7,26 +7,25 @@ export default function MovieCard(props) {
 	const isPopular = props.type === "popular"
 
 	return(
-		<div style={{background: `url("https://image.tmdb.org/t/p/original${props.bkg}") center/cover no-repeat`}}>
-			<div className="movieCard">
-				<div className="movieCard__content">
-					<Button
-						variant="contained"
-						color="secondary"
-						startIcon={
-							<svg width="11" height="16" viewBox="0 0 11 16" fill="none">
-								<path fillRule="evenodd" clipRule="evenodd" d="M9.94234 8.2363L0.625 1.875V14.125L9.94234 8.2363Z"/>
-							</svg>
-						}
-					/>
+		isPopular ? (
+			<div style={{background: `url("https://image.tmdb.org/t/p/original${props.bkg}") center/cover no-repeat`}}>
+				<div className="movieCard">
+					<div className="movieCard__content">
+						<Button
+							variant="contained"
+							color="secondary"
+							startIcon={
+								<svg width="11" height="16" viewBox="0 0 11 16" fill="none">
+									<path fillRule="evenodd" clipRule="evenodd" d="M9.94234 8.2363L0.625 1.875V14.125L9.94234 8.2363Z"/>
+								</svg>
+							}
+						/>
 
-					<Typography variant="body2" className="movieCard__content__title">
-						{props.title}
-					</Typography>
-				</div>
-
-				<div className="movieCard__hover">
-					{isPopular ? (
+						<Typography variant="body2" className="movieCard__content__title">
+							{props.title}
+						</Typography>
+					</div>
+					<div className="movieCard__hover">
 						<div className="movieCard__hover-popular">
 							<div>
 								<svg width="12" height="11" viewBox="0 0 12 11" fill="none">
@@ -37,16 +36,35 @@ export default function MovieCard(props) {
 							</div>
 							
 							{props.released.substring(0,4)}
-						</div>	
-					) : (
-						<div className="movieCard__hover-myMovie">
-							Añadido recientemente
 						</div>
-					)}
+					</div>
 				</div>
-
 			</div>
+		) : (
+			<div style={{background: `url("${props.bkg}") center/cover no-repeat`}}>
+				<div className="movieCard">
+					<div className="movieCard__content">
+						<Button
+							variant="contained"
+							color="secondary"
+							startIcon={
+								<svg width="11" height="16" viewBox="0 0 11 16" fill="none">
+									<path fillRule="evenodd" clipRule="evenodd" d="M9.94234 8.2363L0.625 1.875V14.125L9.94234 8.2363Z"/>
+								</svg>
+							}
+						/>
 
-		</div>
+						<Typography variant="body2" className="movieCard__content__title">
+							{props.title}
+						</Typography>
+					</div>
+					<div className="movieCard__hover">
+						<div className="movieCard__hover-myMovie">
+							Añadido: {props.added}
+						</div>
+					</div>
+				</div>
+			</div>
+		)
 	)
-};
+}

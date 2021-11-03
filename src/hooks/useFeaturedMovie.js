@@ -3,13 +3,19 @@ import { getFeaturedMovies } from '../api/theMovieDbApi'
 
 export const useFeaturedMovie = () => {
 	const [featuredMovie, setFeaturedMovie] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   async function mainFeaturedMovie() {
-    setLoading(true)
-    const movies = await getFeaturedMovies()
-    setFeaturedMovie(movies[0])
-    setLoading(false)
+    try{
+      const movies = await getFeaturedMovies()
+      setFeaturedMovie(movies[0])
+    }
+    catch(error){
+      alert(error)
+    }
+    finally{
+      setLoading(false)
+    }
   }
 
   useEffect(() => {

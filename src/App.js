@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import customTheme from './themeConfig'
 import { ThemeProvider } from '@material-ui/styles'
 import { makeStyles } from '@material-ui/core'
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
-import AddMovie from './components/AddMovie/AddMovie';
 
 import { useFeaturedMovie } from './hooks/useFeaturedMovie';
+import AddMovieModal from './components/AddMovie/Modal';
 
 const useStyle = makeStyles((theme) => ({
   root : {
@@ -17,6 +18,7 @@ const useStyle = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyle()
+  const [openModal, setOpenModal] = useState(false)
   const {featuredMovie, loading} = useFeaturedMovie()
   
   return (
@@ -25,15 +27,17 @@ function App() {
       <div 
         className={classes.root} 
         style={!loading ? {
-          background: `url("https://image.tmdb.org/t/p/original/${featuredMovie.backdrop_path}") center/cover no-repeat`
+          background: `url("https://image.tmdb.org/t/p/w1280/${featuredMovie.backdrop_path}") center/cover no-repeat`
         } : {
           background: "#242424"
         }}
       >
-        <Navbar />
+        <Navbar isModalOpen={openModal} onPressAddMovie={setOpenModal} />
+        
         <Home featuredMovieTitle={!loading ? featuredMovie.original_title : ""} />
         
-        <AddMovie />
+        <AddMovieModal isModalOpen={openModal} setModalOpen={setOpenModal} />
+
       </div>
 
     </ThemeProvider>

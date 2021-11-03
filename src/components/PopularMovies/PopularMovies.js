@@ -12,6 +12,7 @@ export default function PopularMovies({movies}) {
 					rating={m.vote_average}
 					released={m.release_date}
 					type="popular"
+					key={`movie-card-${m.id}`}
 				/>
 			))}
 		</>
