@@ -41,7 +41,6 @@ export default function Dropzone({setImage}) {
 		onDrop,
 		multiple: false,
 		accept: 'image/*',
-		maxSize: 1000000
 	})
 
 	return(
