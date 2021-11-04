@@ -58,10 +58,10 @@ export default function Navbar({isModalOpen, onPressAddMovie}) {
 
 					</div>
 					<div className="menuContainer">
-						<div className="menuContainer__menu pointer">
+						<div className="menuContainer__menu">
 							<MenuIcon />
 						</div>
-						<div className="menuContainer__bell pointer">
+						<div className="menuContainer__bell">
 							<BellIcon />
 							<div className="menuContainer__bell-notif" />
 						</div>

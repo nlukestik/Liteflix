@@ -11,7 +11,7 @@ export default function MovieCard(props) {
 	return(
 		isPopular ? (
 			<div style={{background: `url("https://image.tmdb.org/t/p/original${props.bkg}") center/cover no-repeat`, borderRadius:3}}>
-				<div className="movieCard">
+				<div className="movieCard pointer">
 					<div className="movieCard__content">
 						<Button
 							variant="contained"
@@ -38,7 +38,7 @@ export default function MovieCard(props) {
 			</div>
 		) : (
 			<div style={{background: `url("${props.bkg}") center/cover no-repeat`, borderRadius:3}}>
-				<div className="movieCard">
+				<div className="movieCard pointer">
 					<div className="movieCard__content">
 						<Button
 							variant="contained"
