@@ -30,7 +30,7 @@ export default function ListMovies() {
 							style={(view !== "populares") && !isMobile(960) ? {fontSize:14} : {}}
 						>
 							<span>Ver: <b>{" "+ view}</b></span>
-							<div 
+							<span 
 								style={{
 									transform: isDropdownVisible ? "rotateX(180deg)" : "rotateX(0deg)", 
 									transition:".3s",
@@ -39,7 +39,7 @@ export default function ListMovies() {
 								}}
 							>
 								<ArrowDownIcon />
-							</div>
+							</span>
 						</Typography>
 					</div>
 						

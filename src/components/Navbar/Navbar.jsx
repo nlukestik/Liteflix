@@ -1,4 +1,4 @@
-import { makeStyles, AppBar, Toolbar, Container } from "@material-ui/core"
+import { makeStyles, AppBar, Toolbar, Container, Typography } from "@material-ui/core"
 import avatar from "../../assets/images/avatar.png"
 import logo from "../../assets/images/logo.svg"
 import { ReactComponent as AddIcon } from '../../statics/add.svg'
@@ -52,7 +52,7 @@ export default function Navbar({isModalOpen, onPressAddMovie}) {
 						{!isModalOpen && (
 							<div className="addMovieDesk pointer" onClick={() => onPressAddMovie(true)}>
 								<AddIcon />
-								<span style={{paddingTop:2}}>Agregar película</span>
+								<Typography style={{paddingTop:2}}><b>Agregar película</b></Typography>
 							</div>
 						)}
 

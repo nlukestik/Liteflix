@@ -24,7 +24,7 @@ export default function MovieCard(props) {
 						</Typography>
 					</div>
 					<div className="movieCard__hover">
-						<div className="movieCard__hover-popular">
+						<Typography className="movieCard__hover-popular">
 							<div>
 								<StarIcon />
 
@@ -32,7 +32,7 @@ export default function MovieCard(props) {
 							</div>
 							
 							{props.released.substring(0,4)}
-						</div>
+						</Typography>
 					</div>
 				</div>
 			</div>
@@ -51,9 +51,9 @@ export default function MovieCard(props) {
 						</Typography>
 					</div>
 					<div className="movieCard__hover">
-						<div className="movieCard__hover-myMovie">
+						<Typography className="movieCard__hover-myMovie">
 							Añadido: {props.added}
-						</div>
+						</Typography>
 					</div>
 				</div>
 			</div>
