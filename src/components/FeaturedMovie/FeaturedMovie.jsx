@@ -13,12 +13,12 @@ const useStyle = makeStyles((theme) => ({
 		justifyContent: "flex-end",
 		height: "75vh",
 		color: "white",
-		[theme.breakpoints.down(600)] : {
+		[theme.breakpoints.down(769)] : {
 			height: "85vh",
 		},
 		[theme.breakpoints.down(960)] : {
 			textAlign: "center",
-		}
+		},
 		
   },
 	title : {
@@ -36,6 +36,10 @@ const useStyle = makeStyles((theme) => ({
 			flexDirection: "column",
 			paddingLeft: 64,
 			paddingRight: 64,
+			background: "linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%)",
+		},
+		[theme.breakpoints.between(600,769)] : {
+			justifyContent: "center",
 			background: "linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%)",
 		},
 		
@@ -91,12 +95,11 @@ export default function FeaturedMovie({title}) {
 					variant="h1" 
 					color="primary" 
 					className={`${classes.title} title-animation`}
-					style={isMobile(600) && (title.length > 18) ? 
-						{fontSize:"60px"}
-						: isMobile(600) ?
-							{fontSize:"76"}
-						: {fontSize:""}
-					}
+					style={{fontSize: 
+						isMobile(769) && (title.length > 18) ? "60px"
+						: isMobile(769) ? "76"
+						: ""
+					}}
 				>
 					{title}
 				</Typography>

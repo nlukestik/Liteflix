@@ -54,6 +54,7 @@ $secondary-color: #242424;
 	&__menu {
 		svg {
 			cursor: pointer;
+			-webkit-tap-highlight-color: transparent;
 		}
 	}
 	&__bell {
@@ -72,6 +73,7 @@ $secondary-color: #242424;
 			transform: rotate(0deg);
 			transition: .2s ease-in-out;
 			cursor: pointer;
+			-webkit-tap-highlight-color: transparent;
 			&:hover {
 				transform: rotate(10deg);
 				transition: .2s ease;

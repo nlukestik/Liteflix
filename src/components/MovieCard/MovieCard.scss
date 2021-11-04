@@ -10,6 +10,8 @@ $mC: movieCard;
 	justify-content: center;
 	margin-top: 20px;
 	border-radius: 3px;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
 	
 	&__hover {
 		display: none;
@@ -130,10 +132,10 @@ $mC: movieCard;
 				font-size: 20px !important;
 			}
 		}
-
+		
 		&:hover {
 			background: rgba(36,36,36,0.7);
-	
+			
 			.#{$mC}{
 				&__content{
 					.MuiButton-root{
@@ -163,15 +165,26 @@ $mC: movieCard;
 			.MuiButton-startIcon {
 				margin-left: 2px;
 			}
-				svg{
-					width: 7px;
+			svg{
+				width: 7px;
 					height: 12px;
 				}
+			}
 		}
 	}
-}
-
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+	
+	@media (min-width: 600px) and (max-width: 768px) {
+		.#{$mC} {
+			height: 250px;
+			&__content {
+				&__title{
+					padding: 40px 0px;
+				}
+			}
+		}
+	}
+	
+	@keyframes fade-in {
+		0% { opacity: 0; }
+		100% { opacity: 1; }
+	}
