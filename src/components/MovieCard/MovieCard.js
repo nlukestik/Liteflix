@@ -25,11 +25,11 @@ export default function MovieCard(props) {
 					</div>
 					<div className="movieCard__hover">
 						<Typography className="movieCard__hover-popular">
-							<div>
+							<span>
 								<StarIcon />
 
 								{props.rating}
-							</div>
+							</span>
 							
 							{props.released.substring(0,4)}
 						</Typography>
