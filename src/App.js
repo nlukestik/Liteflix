@@ -12,7 +12,11 @@ import AddMovieModal from './components/AddMovie/Modal';
 
 const useStyle = makeStyles((theme) => ({
   root : {
-    height: "100vh",
+    height: "100%",
+    minHeight: "100vh",
+    [theme.breakpoints.down(769)] : {
+      height: "100vh",
+    }
   }
 }))
 

@@ -7,6 +7,9 @@ const useStyle = makeStyles((theme) => ({
   root : {
 		maxWidth: 1200,
 		margin: "auto",
+		[theme.breakpoints.between(769,1200)] : {
+			padding: "0 20px 10px"
+		}
   },
 	
 }))
